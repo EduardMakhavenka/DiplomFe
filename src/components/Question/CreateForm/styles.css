@@ -1,0 +1,17 @@
+.question-createform {
+    margin: 10px;
+    width: 40%;
+}
+
+.question-createform button {
+    margin-top: 10px;
+}
+
+.question-createform label {
+    margin-top: 15px;
+}
+
+.errorMessage {
+    color: red;
+}
+
