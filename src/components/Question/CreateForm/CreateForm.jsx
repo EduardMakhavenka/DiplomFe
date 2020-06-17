@@ -56,27 +56,25 @@ export default class CreateForm extends Component {
     let name = this.state.name.trim().slice(0, 30);
     let email = this.state.email;
     if(this.isEmailCorrect(name, email, content)){
-      //this.props.create( content, name, email);
-      console.log('error');
+      this.props.create( content, name, email, '');
     }
-    
   }
   
   isEmailCorrect = (name, email, content) => {
     let result = true;
     if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       .test(email.trim())) {
-      this.state.emailError = true;
+      this.setState({ emailError: true});
       result = false; 
     } 
 
     if (name.length < 5) {
-      this.state.nameError = true;
+      this.setState({ nameError: true});
       result = false;
     }
 
     if (content === '') {
-      this.state.textareaError = true;
+      this.setState({ textareaError: true});
       result = false;
     }
     return result;
@@ -87,7 +85,7 @@ export default class CreateForm extends Component {
       <div>
         <div className="question-createform">
           <h1>Задать вопрос</h1>
-          <label>ФИО</label>
+          <label>ФИО/никнейм/псевдоним</label>
           {this.state.nameError === true ? <p className="errorMessage">Имя должно содержать не менее 3 символов и не более 35!</p> : <p></p> }
           <input type="text" class="form-control" onChange={this.handelName} placeholder="Иван Колобков"/>
           <label >Email</label>

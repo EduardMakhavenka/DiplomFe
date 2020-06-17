@@ -3,14 +3,22 @@ import { connect } from 'react-redux';
 
 import Container from '../../../components/Common/Container';
 import CreateForm from '../../../components/Question/CreateForm';
+import List from '../../../components/Question/List';
 import Header from '../../../components/Common/Header';
 import Footer from '../../../components/Common/Footer';
 
-import { createQuestion } from '../../../actions/question';
+import { createQuestion, getAllQuestions } from '../../../actions/question';
+import { createAnswer, getAllAnswers } from '../../../actions/answer';
 
 class Question extends Component {
 
+  componentDidMount () {
+    this.props.getAllQuestions();
+    this.props.getAllAnswers();
+  }
+
   render () {
+    const { questions, answers } = this.props;
     return (
       <div>
         <Header/>
@@ -18,6 +26,11 @@ class Question extends Component {
           <CreateForm
             create={this.props.createQuestion}
           />
+          {questions && <List 
+            items={questions}
+            createAnswer={this.props.createAnswer}
+            answers={answers}
+          />}
         </Container>
         <Footer/>
       </div>
@@ -25,15 +38,21 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ }) => {
+const mapStateToProps = ({ question, answer }) => {
   return {
+    questions: question.questions,
+    answers: answer.answers,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createQuestion: (text, name, email) =>
-      dispatch(createQuestion(text, name, email))
+    getAllAnswers: () => dispatch(getAllAnswers()),
+    getAllQuestions: () => dispatch(getAllQuestions()),
+    createQuestion: (text, name, email, to) =>
+      dispatch(createQuestion(text, name, email, to)),
+    createAnswer: (text, author, role, questionId) => 
+      dispatch(createAnswer(text, author, role, questionId)),  
   };
 };
 

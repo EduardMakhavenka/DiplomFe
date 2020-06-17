@@ -6,8 +6,15 @@ import MainPage from '../../containers/Pages/MainPage';
 import Doctors from '../../containers/Pages/Doctors';
 import Question from '../../containers/Pages/Question/Question';
 import Directory from '../../containers/Pages/Directory/Directory';
+import Disease from '../../containers/Pages/Disease/Disease';
+import PlantSearch from '../../containers/Pages/PlantSearch/PlantSearch';
+import Plant from '../../containers/Pages/Plant/Plant';
 
 const ROUTES = [
+  {
+    path: '/plant',
+    component: PlantSearch
+  },
   {
     path: '/',
     component: MainPage
@@ -24,6 +31,14 @@ const ROUTES = [
     path: '/directory',
     component: Directory
   },
+  {
+    path: '/disease/:id',
+    component: Disease
+  },
+  {
+    path: '/plant/:id',
+    component: Plant
+  }
 
 ];
 
