@@ -6918,9 +6918,9 @@ react-transition-group@^4.0.0, react-transition-group@^4.3.0:
     prop-types "^15.6.2"
 
 react@next:
-  version "0.0.0-d7382b6c4"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-d7382b6c4.tgz#332f23a767144a7be261ff92b5537238d79a2d40"
-  integrity sha512-cA0aW/k5CPPk1abKbQ9xZzbKxcvbYA2KxI8eopQifvW8+r9l0zS3m/2pXPauEJ6UmJw2ASr0WH7qjleOegCi/g==
+  version "17.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.0-rc.1.tgz#2f7575465517153dcd0d6a596f75f200c1612e2a"
+  integrity sha512-sQ7X+k3zwf6cFQu9pD6FFJMwHwoKAV+EKLWRW4rD1ruyRiFkmC09cjtqFySLtaZbUdzYEc8iy4uOwisJNlXytg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
